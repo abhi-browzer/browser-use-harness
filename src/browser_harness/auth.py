@@ -1,7 +1,7 @@
 """Browser Use Cloud auth for browser-harness.
 
 The model-facing contract stays small: cloud browser startup either has a key
-or tells the agent to run `browser-harness auth login`. OAuth details live here.
+or tells the agent to run `browser-harnauth login`. OAuth details live here.
 """
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ from . import paths
 
 AUTH_BASE = "https://api.browser-use.com"
 # Browser Use currently exposes this registered CLI OAuth client. Keep an env
-# escape hatch so a dedicated browser-harness client can be used once issued.
+# escape hatch so a dedicated browser-harnclient can be used once issued.
 DEFAULT_CLIENT_ID = "browser-use-terminal"
 CALLBACK_PATH = "/browser-use-cloud/callback"
 AUTH_TIMEOUT_SECONDS = 600
@@ -36,7 +36,7 @@ AUTH_TIMEOUT_SECONDS = 600
 
 class CloudAuthRequired(RuntimeError):
     def __init__(self):
-        super().__init__("cloud-auth-required: run `browser-harness auth login`")
+        super().__init__("cloud-auth-required: run `browser-harnauth login`")
 
 
 class AuthError(RuntimeError):
@@ -506,7 +506,7 @@ def _stored_success_output() -> dict:
 
 
 def run_auth_cli(argv: list[str]) -> int:
-    parser = argparse.ArgumentParser(prog="browser-harness auth")
+    parser = argparse.ArgumentParser(prog="browser-harnauth")
     sub = parser.add_subparsers(dest="command", required=True)
     login = sub.add_parser("login")
     login_mode = login.add_mutually_exclusive_group()

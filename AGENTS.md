@@ -1,4 +1,4 @@
-browser-harness is a thin layer that connects agents to browsers via an editable CDP harness.
+browser-harnis a thin layer that connects agents to browsers via an editable CDP harness.
 
 # Code priorities
 - Clarity

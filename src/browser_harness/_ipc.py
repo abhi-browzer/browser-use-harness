@@ -9,7 +9,7 @@ IS_WINDOWS = sys.platform == "win32"
 #   BH_RUNTIME_DIR — sock/port/pid. AF_UNIX sun_path is 104 bytes on macOS, so
 #       the runtime dir must be short. Caller is responsible for keeping it
 #       within budget. Falls back to BH_TMP_DIR (legacy single-dir callers),
-#       then to the browser-harness runtime dir.
+#       then to the browser-harnruntime dir.
 #   BH_TMP_DIR — screenshots, debug overlays, daemon log. No path-length
 #       sensitivity; caller can use a deep persistent path.
 # By default, a caller-supplied dir is treated as per-instance and files use

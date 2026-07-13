@@ -293,5 +293,5 @@ def run_telemetry_cli(argv: list[str]) -> int:
     if argv == ["enable"]:
         print(json.dumps(set_enabled(True), indent=2))
         return 0
-    print("usage: browser-harness telemetry [status|enable|disable]")
+    print("usage: browser-harntelemetry [status|enable|disable]")
     return 2

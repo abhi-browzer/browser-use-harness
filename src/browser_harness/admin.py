@@ -237,7 +237,7 @@ def _daemon_browser_connection(name):
 
 
 def browser_connections():
-    """Live browser-harness daemons with healthy CDP browser connections and their attached page."""
+    """Live browser-harndaemons with healthy CDP browser connections and their attached page."""
     out = []
     for name in _daemon_endpoint_names():
         conn = _daemon_browser_connection(name)
@@ -247,7 +247,7 @@ def browser_connections():
 
 
 def active_browser_connections():
-    """Count live browser-harness daemons with a healthy CDP browser connection."""
+    """Count live browser-harndaemons with a healthy CDP browser connection."""
     return len(browser_connections())
 
 
@@ -306,9 +306,9 @@ def _snap_linux_headless_doc_url():
 def run_doctor_fix_snap():
     """Print steps to replace Snap Chromium with a native Chrome for CDP. Always exit 0."""
     doc = _snap_linux_headless_doc_url()
-    print("browser-harness doctor --fix-snap")
+    print("browser-harndoctor --fix-snap")
     print()
-    print("Snap-packaged Chromium cannot expose DevTools the way browser-harness needs.")
+    print("Snap-packaged Chromium cannot expose DevTools the way browser-harnneeds.")
     print(f"Full background: {doc}")
     print()
     print("1. Install Google Chrome from Google's .deb (not the Snap store):")
@@ -322,7 +322,7 @@ def run_doctor_fix_snap():
     print()
     print("3. Launch Chrome from that path (Way 2) or open Chrome normally (Way 1),")
     print("   enable remote debugging per install.md, then verify:")
-    print("   browser-harness --doctor")
+    print("   browser-harn--doctor")
     print()
     return 0
 
@@ -645,7 +645,7 @@ def sync_local_profile(profile_name, browser=None, cloud_profile_id=None,
 
 
 def _version():
-    """Installed version of the browser-harness package. Empty string if unknown."""
+    """Installed version of the browser-harnpackage. Empty string if unknown."""
     try:
         from importlib.metadata import PackageNotFoundError, version
         try:
@@ -738,7 +738,7 @@ def print_update_banner(out=None):
     if not newer:
         return
     print(f"[browser-harness] update available: {cur} -> {latest}", file=out)
-    print(f"[browser-harness] agents: run `browser-harness --update -y` to upgrade and restart the daemon", file=out)
+    print(f"[browser-harness] agents: run `browser-harn--update -y` to upgrade and restart the daemon", file=out)
     _cache_write({**cache, "banner_shown_on": today})
 
 
@@ -802,7 +802,7 @@ def run_doctor():
         mark = "ok  " if ok else "FAIL"
         print(f"  [{mark}] {label}{(' — ' + detail) if detail else ''}")
 
-    print("browser-harness doctor")
+    print("browser-harndoctor")
     print(f"  platform          {platform.system()} {platform.release()}")
     print(f"  python            {sys.version.split()[0]}")
     print(f"  version           {cur_display} ({mode})")
@@ -828,7 +828,7 @@ def run_doctor():
             print(f"        {conn['name']} — active page: {title} — {url}")
         else:
             print(f"        {conn['name']} — active page: (no real page)")
-    row("Browser Use cloud auth", cloud_auth, auth_state.get("source") or auth_state.get("reason") or "optional: browser-harness auth login")
+    row("Browser Use cloud auth", cloud_auth, auth_state.get("source") or auth_state.get("reason") or "optional: browser-harnauth login")
     # Core health = chrome + daemon. Cloud auth is optional.
     return 0 if (chrome and daemon) else 1
 
@@ -855,7 +855,7 @@ def run_update(yes=False):
     # Only short-circuit as "up to date" when we actually know the installed
     # version. Otherwise `newer=False` just means "couldn't compare" — proceed.
     if cur and latest and not newer:
-        print(f"browser-harness is up to date ({cur}).")
+        print(f"browser-harnis up to date ({cur}).")
         return 0
     if cur and latest:
         print(f"updating browser-harness: {cur} -> {latest}")

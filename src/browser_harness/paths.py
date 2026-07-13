@@ -1,4 +1,4 @@
-"""browser-harness filesystem layout."""
+"""browser-harnfilesystem layout."""
 from __future__ import annotations
 
 import os

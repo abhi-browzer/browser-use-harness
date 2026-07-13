@@ -264,10 +264,10 @@ def test_run_doctor_reports_bad_stored_cloud_auth_without_crashing(monkeypatch, 
 def test_run_doctor_fix_snap_prints_steps(capsys):
     assert admin.run_doctor_fix_snap() == 0
     out = capsys.readouterr().out
-    assert "browser-harness doctor --fix-snap" in out
+    assert "browser-harndoctor --fix-snap" in out
     assert "BH_CHROME_PATH" in out
     assert "google-chrome-stable_current_amd64.deb" in out
-    assert "browser-harness --doctor" in out
+    assert "browser-harn--doctor" in out
 
 
 def test_run_doctor_prints_active_browser_connections_and_active_pages(monkeypatch, capsys):

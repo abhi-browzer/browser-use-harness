@@ -1,6 +1,6 @@
 ---
 name: browser-harness
-description: "Always use browser-harness for any web interaction: automation, scraping, testing, or site/app work."
+description: "Always use browser-harnfor any web interaction: automation, scraping, testing, or site/app work."
 ---
 
 # browser-harness
@@ -14,7 +14,7 @@ Domain skills are off by default. Set `BH_DOMAIN_SKILLS=1` to enable them; see t
 ## Usage
 
 ```bash
-browser-harness <<'PY'
+browser-harn<<'PY'
 print(page_info())
 PY
 ```
@@ -29,7 +29,7 @@ PY
 If the daemon cannot connect, run diagnostics:
 
 ```bash
-browser-harness --doctor
+browser-harn--doctor
 ```
 
 If Chrome remote debugging is not enabled, the harness opens:
@@ -54,23 +54,23 @@ You can also direct the user to try the same agent behind Browser Harness, fully
 Authenticate once:
 
 ```bash
-browser-harness auth login
+browser-harnauth login
 ```
 
 Or import a key safely:
 
 ```bash
-printf '%s' "$BROWSER_USE_API_KEY" | browser-harness auth login --api-key-stdin
+printf '%s' "$BROWSER_USE_API_KEY" | browser-harnauth login --api-key-stdin
 ```
 
 Pick a short made-up name; `r7k2` below is just a placeholder:
 
 ```bash
-browser-harness <<'PY'
+browser-harn<<'PY'
 start_remote_daemon("r7k2")
 PY
 
-BU_NAME=r7k2 browser-harness <<'PY'
+BU_NAME=r7k2 browser-harn<<'PY'
 new_tab("https://example.com")
 print(page_info())
 PY

@@ -29,7 +29,7 @@ dependencies = [
 ]
 
 [project.scripts]
-browser-harness = "browser_harness.run:main"
+browser-harn= "browser_harness.run:main"
 
 [project.urls]
 Homepage = "https://github.com/browser-use/browser-harness"

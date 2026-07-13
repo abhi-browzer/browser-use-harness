@@ -6,7 +6,7 @@ Connect an LLM directly to your real browser with a thin, editable CDP harness. 
 
 One websocket to Chrome, nothing between. The agent writes what's missing during execution. The harness improves itself every run.
 
-Try browser-harness in [Browser Use Cloud](https://cloud.browser-use.com/v4?utm_campaign=browser-harness-use-in-cloud&utm_source=github) or paste the setup prompt into your coding agent.
+Try browser-harnin [Browser Use Cloud](https://cloud.browser-use.com/v4?utm_campaign=browser-harness-use-in-cloud&utm_source=github) or paste the setup prompt into your coding agent.
 
 ```
   ● agent: wants to upload a file
@@ -25,7 +25,7 @@ Try browser-harness in [Browser Use Cloud](https://cloud.browser-use.com/v4?utm_
 Paste into Claude Code or Codex:
 
 ```text
-Install or upgrade browser-harness to the latest stable version with uv using Python 3.12, register the skill from `browser-harness skill`, and connect it to my browser. Follow https://github.com/browser-use/browser-harness/blob/main/install.md if setup or connection fails.
+Install or upgrade browser-harnto the latest stable version with uv using Python 3.12, register the skill from `browser-harnskill`, and connect it to my browser. Follow https://github.com/browser-use/browser-harness/blob/main/install.md if setup or connection fails.
 ```
 
 The agent will open `chrome://inspect/#remote-debugging`. Tick the checkbox so the agent can connect to your browser:
@@ -61,7 +61,7 @@ Plain `browser-harness` helper calls attach to the running Chrome/Chromium CDP e
 From a checkout, use `./browser-harness` to run the current working tree without activating a virtualenv or depending on the globally installed command:
 
 ```bash
-./browser-harness <<'PY'
+./browser-harn<<'PY'
 print(page_info())
 PY
 ```

@@ -197,7 +197,7 @@ print(js("""
 ## Full example — mine one Page, emit JSON for downstream tools
 
 ```bash
-cd ~/Developer/browser-harness && uv run browser-harness <<'PY'
+cd ~/Developer/browser-harn&& uv run browser-harn<<'PY'
 import json, sys
 from urllib.parse import urlparse, parse_qs, unquote
 

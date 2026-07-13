@@ -35,7 +35,7 @@ HELP = """Browser Harness
 Read SKILL.md for the default workflow and examples.
 
 Typical usage:
-  browser-harness <<'PY'
+  browser-harn<<'PY'
   ensure_real_tab()
   print(page_info())
   PY
@@ -43,22 +43,22 @@ Typical usage:
 Helpers are pre-imported. The daemon auto-starts and connects to the running browser.
 
 Commands:
-  browser-harness --version        print the installed version
-  browser-harness --doctor         diagnose install, daemon, and browser state
-  browser-harness doctor           same as --doctor
-  browser-harness doctor --fix-snap   print how to fix Snap Chromium blocking CDP (Linux)
-  browser-harness auth login          sign in to Browser Use Cloud for cloud browsers
-  browser-harness auth login --device-code   sign in from SSH/headless environments
-  browser-harness auth status         show Browser Use Cloud auth state
-  browser-harness auth logout         remove stored Browser Use Cloud auth
-  browser-harness skill               print the browser-harness skill text
-  browser-harness telemetry status    show anonymous telemetry opt-out state
-  browser-harness --update [-y]    pull the latest version (agents: pass -y)
-  browser-harness --reload         stop the daemon so next call picks up code changes
+  browser-harn--version        print the installed version
+  browser-harn--doctor         diagnose install, daemon, and browser state
+  browser-harndoctor           same as --doctor
+  browser-harndoctor --fix-snap   print how to fix Snap Chromium blocking CDP (Linux)
+  browser-harnauth login          sign in to Browser Use Cloud for cloud browsers
+  browser-harnauth login --device-code   sign in from SSH/headless environments
+  browser-harnauth status         show Browser Use Cloud auth state
+  browser-harnauth logout         remove stored Browser Use Cloud auth
+  browser-harnskill               print the browser-harnskill text
+  browser-harntelemetry status    show anonymous telemetry opt-out state
+  browser-harn--update [-y]    pull the latest version (agents: pass -y)
+  browser-harn--reload         stop the daemon so next call picks up code changes
 """
 
 USAGE = """Usage:
-  browser-harness <<'PY'
+  browser-harn<<'PY'
   print(page_info())
   PY
 """
@@ -299,14 +299,14 @@ def _run(args):
         if rest == ["--fix-snap"]:
             sys.exit(run_doctor_fix_snap())
         if rest:
-            print("usage: browser-harness doctor [--fix-snap]", file=sys.stderr)
+            print("usage: browser-harndoctor [--fix-snap]", file=sys.stderr)
             sys.exit(2)
         sys.exit(run_doctor())
     if args and args[0] == "auth":
         sys.exit(auth.run_auth_cli(args[1:]))
     if args and args[0] == "skill":
         if len(args) != 1:
-            print("usage: browser-harness skill", file=sys.stderr)
+            print("usage: browser-harnskill", file=sys.stderr)
             sys.exit(2)
         _print_skill()
         return
