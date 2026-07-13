@@ -45,7 +45,7 @@ def click_button_by_text(label):
     if result is None:
         raise RuntimeError(f"button not found: {label!r} — has the React app finished hydrating?")
     pos = json.loads(result)
-    click_at_xy(pos["x"], pos["y"])
+    click_xy(pos["x"], pos["y"])
 
 # Google
 click_button_by_text("Continue with Google")

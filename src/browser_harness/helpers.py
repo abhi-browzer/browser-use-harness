@@ -149,7 +149,7 @@ def page_info():
 # --- input ---
 _debug_click_counter = 0
 
-def click_at_xy(x, y, button="left", clicks=1):
+def click_xy(x, y, button="left", clicks=1):
     if os.environ.get("BH_DEBUG_CLICKS"):
         global _debug_click_counter
         try:
@@ -194,7 +194,7 @@ def fill_input(selector, text, clear_first=True, timeout=0.0):
     if not focused:
         raise RuntimeError(f"fill_input: element not found: {selector!r}")
     if clear_first:
-        # Dispatch select-all directly — NOT via press_key, which always emits a
+        # Dispatch select-all directly — NOT via press, which always emits a
         # `char` event for single-char keys. With Ctrl/Cmd held, that `char`
         # makes Chrome treat the input as a printable "a" instead of firing the
         # select-all shortcut, leaving the field uncleared.
@@ -203,9 +203,9 @@ def fill_input(selector, text, clear_first=True, timeout=0.0):
                       "windowsVirtualKeyCode": 65, "nativeVirtualKeyCode": 65}
         cdp("Input.dispatchKeyEvent", type="rawKeyDown", **select_all)
         cdp("Input.dispatchKeyEvent", type="keyUp", **select_all)
-        press_key("Backspace")
+        press("Backspace")
     for ch in text:
-        press_key(ch)
+        press(ch)
     js(
         f"(()=>{{const e=document.querySelector({json.dumps(selector)});"
         f"if(!e)return;"
@@ -221,7 +221,7 @@ _KEYS = {  # key → (windowsVirtualKeyCode, code, text)
     "Home": (36, "Home", ""), "End": (35, "End", ""),
     "PageUp": (33, "PageUp", ""), "PageDown": (34, "PageDown", ""),
 }
-def press_key(key, modifiers=0):
+def press(key, modifiers=0):
     """Modifiers bitfield: 1=Alt, 2=Ctrl, 4=Meta(Cmd), 8=Shift.
     Special keys (Enter, Tab, Arrow*, Backspace, etc.) carry their virtual key codes
     so listeners checking e.keyCode / e.key all fire."""

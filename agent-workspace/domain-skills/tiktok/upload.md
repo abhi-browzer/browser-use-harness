@@ -12,8 +12,8 @@ URL: `https://www.tiktok.com/tiktokstudio/upload?from=upload&lang=en` (always ap
 TikTok shows "A video you were editing wasn't saved" if a previous upload was abandoned. Dismiss it:
 
 1. Find the banner Discard button (y < 300 in the page)
-2. CDP `click_at_xy(x, y)` on it
-3. A confirmation modal appears — find the red Discard button (y > 300) and CDP `click_at_xy(x, y)`
+2. CDP `click_xy(x, y)` on it
+3. A confirmation modal appears — find the red Discard button (y > 300) and CDP `click_xy(x, y)`
 4. Repeat if multiple stale drafts are stacked
 
 ## Upload flow
@@ -31,11 +31,11 @@ TikTok pre-fills caption with the filename. Clear it first:
 
 ```python
 js("document.querySelector('div[contenteditable=\"true\"][role=\"combobox\"]').focus()")
-press_key("End")
-for _ in range(25): press_key("Backspace")  # clear filename
+press("End")
+for _ in range(25): press("Backspace")  # clear filename
 type_text("your caption here #hashtag1 #hashtag2")
-press_key("Escape")  # dismiss hashtag suggestions
-click_at_xy(700, 50)        # click away to deselect
+press("Escape")  # dismiss hashtag suggestions
+click_xy(700, 50)        # click away to deselect
 ```
 
 Verify: `js('document.querySelector(\'div[contenteditable="true"][role="combobox"]\').innerText')`
@@ -52,7 +52,7 @@ js("(()=>{var l=document.querySelectorAll('label');for(var i=0;i<l.length;i++){i
 ```python
 # 1. ScrollIntoView and open the time picker
 js("...scrollIntoView the time input...")
-click_at_xy(time_input_x, time_input_y)
+click_xy(time_input_x, time_input_y)
 
 # 2. Read default time, calculate difference
 default_hour, default_min = 13, 5  # from input value
@@ -67,7 +67,7 @@ for _ in range((target_min - default_min) // 5):
     scroll(437, dropdown_y, dy=32)  # +5 min per step
 
 # 5. Close and verify
-press_key("Escape")
+press("Escape")
 ```
 
 **Date picker** — click the date input, then click the target day number span.
@@ -87,18 +87,18 @@ js("...scrollIntoView 'ai-generated content' span...")
 
 ### 5. Submit
 
-Scroll the Schedule button into view, then CDP `click_at_xy(x, y)`. After success, page redirects to `/tiktokstudio/content`.
+Scroll the Schedule button into view, then CDP `click_xy(x, y)`. After success, page redirects to `/tiktokstudio/content`.
 
 ```python
 js("...scrollIntoView Schedule button (offsetWidth > 100)...")
-click_at_xy(button_x, button_y)
+click_xy(button_x, button_y)
 wait(6)
 assert "content" in page_info()["url"]
 ```
 
 ## Gotchas
 
-- **JS `.click()` doesn't work on TikTok's time picker items** — must use CDP `click_at_xy(x, y)`
+- **JS `.click()` doesn't work on TikTok's time picker items** — must use CDP `click_xy(x, y)`
 - **Time picker uses virtual scroll** — `scroll(x, y, dy=32)` changes value, NOT regular DOM scroll
 - **Caption contenteditable appends on type** — always clear with End + Backspace first, never set innerHTML (breaks React state)
 - **beforeunload dialog** blocks navigation if upload is in progress — use `cdp("Page.handleJavaScriptDialog", accept=True)` to dismiss (see `interaction-skills/dialogs.md`)

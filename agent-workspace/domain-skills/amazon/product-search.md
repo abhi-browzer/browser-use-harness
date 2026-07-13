@@ -22,7 +22,7 @@ js("document.querySelector('#twotabsearchtextbox').click()")
 wait(0.3)
 type_text("wireless mouse")
 wait(0.3)
-press_key("Enter")
+press("Enter")
 wait_for_load()
 wait(2)
 ```

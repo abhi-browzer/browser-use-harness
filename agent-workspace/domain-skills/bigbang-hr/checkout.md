@@ -49,7 +49,7 @@ js("document.getElementById('location').focus()")
 cdp("Input.insertText", text="10000")
 # Wait for autocomplete dropdown to appear (~500ms)
 # Select from dropdown: li.ui-menu-item inside ul.locations-ui-autocomplete
-# Use getBoundingClientRect() on the first li, then click_at_xy()
+# Use getBoundingClientRect() on the first li, then click_xy()
 # This auto-populates #zipcode and #city
 ```
 

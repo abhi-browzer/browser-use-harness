@@ -1,8 +1,8 @@
 # Flipkart — Gift & Product Shopping (Field-Tested)
 
 Field-tested against flipkart.com on 2026-04-27/28 using `browser-harness` CDP
-helpers (`goto_url`, `js`, `click_at_xy`, `type_text`, `capture_screenshot`,
-`scroll`, `press_key`, `page_info`).
+helpers (`goto_url`, `js`, `click_xy`, `type_text`, `capture_screenshot`,
+`scroll`, `press`, `page_info`).
 
 ---
 
@@ -83,7 +83,7 @@ If the modal persists after JS dismiss, use coordinate click on the ✕ button
 (typically top-right of the modal):
 
 ```python
-click_at_xy(720, 180)  # adjust based on screenshot
+click_xy(720, 180)  # adjust based on screenshot
 ```
 
 ---
@@ -113,7 +113,7 @@ js("""(()=>{
 
 # Step 2: Clear and type new pincode
 type_text("560077")
-press_key("Enter")
+press("Enter")
 
 # Step 3: Wait and read delivery estimate
 wait(3)

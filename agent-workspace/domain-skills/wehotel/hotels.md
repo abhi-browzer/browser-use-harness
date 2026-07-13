@@ -56,7 +56,7 @@ dates, so two equivalent paths work:
 ### Path A — drive the homepage form
 
 ```python
-from browser_harness.helpers import new_tab, wait_for_load, click_at_xy, js, type_text
+from browser_harness.helpers import new_tab, wait_for_load, click_xy, js, type_text
 import time
 
 new_tab("https://www.bestwehotel.com/")
@@ -70,7 +70,7 @@ btn = js("""
   const r = b.getBoundingClientRect();
   return {x: r.x+r.width/2, y: r.y+r.height/2};
 """)
-click_at_xy(btn["x"], btn["y"])
+click_xy(btn["x"], btn["y"])
 time.sleep(8)            # XHR list fetch
 ```
 

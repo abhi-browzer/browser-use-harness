@@ -141,7 +141,7 @@ def test_fill_input_clear_first_sends_select_all_then_backspace():
     assert not any(e.get("type") == "char" and e.get("text") == "a" for e in key_events), \
         "select-all must not emit a 'char' event with text='a' (would cancel the shortcut)"
 
-    # Backspace still fires (via press_key, which uses keyDown).
+    # Backspace still fires (via press, which uses keyDown).
     keys_down = [e.get("key") for e in key_events if e.get("type") in ("keyDown", "rawKeyDown")]
     assert "Backspace" in keys_down
 

@@ -31,7 +31,7 @@ result = js(r'''
 if result is None:
     raise RuntimeError("compose textarea not found — are you logged in and on x.com/home?")
 pos = json.loads(result)
-click_at_xy(pos["x"], pos["y"])
+click_xy(pos["x"], pos["y"])
 type_text("hello world!")
 
 # Find and click Post
@@ -45,7 +45,7 @@ btn = js(r'''
 if btn is None:
     raise RuntimeError("post button not found — did the compose surface fail to open?")
 pos = json.loads(btn)
-click_at_xy(pos["x"], pos["y"])
+click_xy(pos["x"], pos["y"])
 ```
 
 ### Stable selectors

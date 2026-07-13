@@ -106,26 +106,26 @@ def _coords_by_selector(selector):
     return p["x"], p["y"]
 
 # Open the compose dialog
-click_at_xy(*_coords_by_text("New message"))
+click_xy(*_coords_by_text("New message"))
 wait(1.0)  # let the dialog mount; agents may still be loading
 
 # Open the agent <Select> trigger and pick an agent.
 # The trigger renders the placeholder "Select agent…" until an agent is chosen.
-click_at_xy(*_coords_by_text("Select agent…"))
+click_xy(*_coords_by_text("Select agent…"))
 wait(0.5)
 # Then click the agent name from the opened dropdown:
-click_at_xy(*_coords_by_text("YOUR_AGENT_NAME"))
+click_xy(*_coords_by_text("YOUR_AGENT_NAME"))
 
 # Focus the subject input, then type
-click_at_xy(*_coords_by_selector('input[id="subject"]'))
+click_xy(*_coords_by_selector('input[id="subject"]'))
 type_text("Check the build status")
 
 # (Optional) focus the message textarea and type the body
-# click_at_xy(*_coords_by_selector('textarea'))
+# click_xy(*_coords_by_selector('textarea'))
 # type_text("Detailed instructions go here.")
 
 # Submit
-click_at_xy(*_coords_by_text("Send"))
+click_xy(*_coords_by_text("Send"))
 ```
 
 ## Task thread

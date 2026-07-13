@@ -138,7 +138,7 @@ press Enter:
 click(x, y)  # coordinates of #price-max
 js("document.getElementById('price-max').select()")
 type_text("20000")
-press_key("Enter")
+press("Enter")
 ```
 
 Setting the value purely via JS (`dispatchEvent`) does trigger a re-search but

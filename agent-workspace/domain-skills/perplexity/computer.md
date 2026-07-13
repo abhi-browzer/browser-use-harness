@@ -72,7 +72,7 @@ click(rect["x"], rect["y"])
 wait(0.3)
 type_text("Summarize the three most recent earnings calls from NVDA in under 300 words.")
 wait(0.4)
-press_key("Enter")  # or click the arrow-right send button
+press("Enter")  # or click the arrow-right send button
 wait(3)
 print(page_info())  # URL becomes /computer/tasks/<slug>-<id>
 PY

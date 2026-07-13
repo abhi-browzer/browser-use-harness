@@ -63,14 +63,14 @@ SPA handler reliably. Two patterns that work:
 
 1. **Coordinate click** (preferred — same shape as the rest of harness):
    ```python
-   from browser_harness.helpers import js, click_at_xy
+   from browser_harness.helpers import js, click_xy
    btns = js("""
      return Array.from(document.querySelectorAll("div"))
        .filter(el => (el.innerText||"").trim() === "搜索")
        .map(el => { const r = el.getBoundingClientRect();
                     return {x: r.x+r.width/2, y: r.y+r.height/2}; });
    """)
-   click_at_xy(btns[0]["x"], btns[0]["y"])
+   click_xy(btns[0]["x"], btns[0]["y"])
    ```
 
 2. **Direct URL navigation** (skip the form entirely): build the

@@ -1012,7 +1012,7 @@ jobs = collect_indeed_jobs("machine learning engineer", max_results=30, fromage=
 
 - **User-agent matters** — `http_get` uses `Mozilla/5.0` by default (see `helpers.py`). For Indeed `http_get`, also set `Accept-Language: en-US,en;q=0.9` to avoid getting German or localized results based on IP geolocation.
 
-- **Stepstone cookie modal is fullscreen** — On first load, Stepstone shows a fullscreen consent overlay that blocks the entire page. Always call `dismiss_cookie_banner()` before any extraction. If the overlay cannot be dismissed with the generic pattern, use a coordinate click: `capture_screenshot()` first to find the "Alle akzeptieren" (Accept all) button position, then `click_at_xy(x, y)`.
+- **Stepstone cookie modal is fullscreen** — On first load, Stepstone shows a fullscreen consent overlay that blocks the entire page. Always call `dismiss_cookie_banner()` before any extraction. If the overlay cannot be dismissed with the generic pattern, use a coordinate click: `capture_screenshot()` first to find the "Alle akzeptieren" (Accept all) button position, then `click_xy(x, y)`.
 
 - **Glassdoor salary in card vs detail** — Salary text in the card may be truncated ("$90K - $120K (Glassdoor est.)"). The full salary breakdown (base, bonus, total comp) is only on the job detail page, which requires a click through.
 

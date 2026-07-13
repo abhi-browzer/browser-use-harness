@@ -85,7 +85,7 @@ Cloud profile cookie sync reference: https://github.com/browser-use/browser-harn
 ## Page Workflow
 
 - Screenshots first: use `capture_screenshot()` to understand visible state.
-- Clicking: screenshot -> read pixel -> `click_at_xy(x, y)` -> screenshot again.
+- Clicking: screenshot -> read pixel -> `click_xy(x, y)` -> screenshot again.
 - After navigation, call `wait_for_load()`.
 - If the current tab is stale or internal, call `ensure_real_tab()`.
 - Use `js(...)` for DOM inspection or extraction when coordinates are the wrong tool.

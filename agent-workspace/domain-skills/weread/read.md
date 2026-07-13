@@ -190,7 +190,7 @@ def pick_book_from_new_ranking():
     """)
 
     if first_book:
-        click_at_xy(first_book["x"], first_book["y"])
+        click_xy(first_book["x"], first_book["y"])
         wait_for_load()
         time.sleep(1)
 
@@ -225,7 +225,7 @@ def scroll_reading(duration=360):
             current = get_current_chapter()
             chapters_read.append(current)
             # Click next chapter
-            click_at_xy(next_chapter["x"], next_chapter["y"])
+            click_xy(next_chapter["x"], next_chapter["y"])
             wait_for_load()
             time.sleep(1)
             continue
@@ -306,7 +306,7 @@ def click_mark_finished():
         return null;
     """)
     if button:
-        click_at_xy(button["x"], button["y"])
+        click_xy(button["x"], button["y"])
         wait_for_load()
         time.sleep(1)
 ```

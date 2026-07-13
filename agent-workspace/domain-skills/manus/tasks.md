@@ -72,7 +72,7 @@ wait(0.4)
 # Submit via Enter — the editor has enterkeyhint="enter" and binds Enter to submit.
 # (Click the send button at the bottom-right of the composer if Enter is being blocked
 #  by an autocomplete / slash-menu.)
-press_key("Enter")
+press("Enter")
 wait(3)
 print(page_info())  # url will be /app/<taskId>
 PY
@@ -92,7 +92,7 @@ The input is a **TipTap/ProseMirror** contenteditable, not a `<textarea>`. Setti
 | Connect / integrations | `button svg.lucide-cable` inside composer | Opens integrations popover. |
 | Computer use toggle | `button svg.lucide-monitor` inside composer | Enables the Cloud PC sandbox for this task. |
 
-Submitting via coordinate click on the send button works and is often more reliable than `press_key("Enter")` — the key-down path occasionally opens the slash-command menu instead of submitting.
+Submitting via coordinate click on the send button works and is often more reliable than `press("Enter")` — the key-down path occasionally opens the slash-command menu instead of submitting.
 
 ### Task page (run + result)
 

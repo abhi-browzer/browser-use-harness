@@ -10,7 +10,7 @@ URL: `https://mail.google.com`
 ## Open compose
 
 ```python
-press_key("c")   # Gmail shortcut — opens a new compose dialog with the "To" field focused
+press("c")   # Gmail shortcut — opens a new compose dialog with the "To" field focused
 wait(1)
 ```
 
@@ -31,7 +31,7 @@ idx = js("""(() => {
 
 ## Trap: Tab inserts a literal `\t` into the "To" field
 
-After `press_key("c")`, focus is on `[aria-label="To recipients"]`. `press_key("Tab")` does **not** advance focus — it inserts a tab character into the input. Confirmed by reading back `value` and finding `"\t"`.
+After `press("c")`, focus is on `[aria-label="To recipients"]`. `press("Tab")` does **not** advance focus — it inserts a tab character into the input. Confirmed by reading back `value` and finding `"\t"`.
 
 Either click the next field directly, or commit the recipient as a chip first (e.g. by typing a valid address; Gmail chips it automatically once the input loses focus or you type a separator).
 
@@ -40,7 +40,7 @@ The recipient does become a chip once you click away. Read chips from `[role="di
 ## Fill the fields
 
 ```python
-# After press_key("c"), "To" is focused
+# After press("c"), "To" is focused
 type_text("someone@example.com")
 
 # Don't Tab — click subject directly
@@ -119,4 +119,4 @@ Verify by looking for the "Message sent" toast at the bottom-left, or by checkin
 - Tab in the "To" field inserts `\t` — never Tab between fields, click them.
 - `input.files` is cleared by Gmail after `setFileInputFiles` — don't use it as a success check.
 - The first match of `input[type="file"]` can belong to a stale/minimized compose; pick by dialog, not by index.
-- `press_key("c")` only works if keyboard shortcuts are enabled in the account. If it no-ops, fall back to clicking the left-rail Compose pencil.
+- `press("c")` only works if keyboard shortcuts are enabled in the account. If it no-ops, fall back to clicking the left-rail Compose pencil.

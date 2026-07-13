@@ -74,7 +74,7 @@ a `<div>`, not `<button>` (same as ly.com — see "search button gotcha"
 below):
 
 ```python
-from browser_harness.helpers import new_tab, wait_for_load, js, click_at_xy, type_text, press_key
+from browser_harness.helpers import new_tab, wait_for_load, js, click_xy, type_text, press
 import time
 
 new_tab("https://hotels.ctrip.com/")
@@ -91,11 +91,11 @@ inp = js("""
 """)
 if not inp:
     raise RuntimeError("ctrip homepage: destination input not found — page DOM may have changed")
-click_at_xy(inp["x"], inp["y"])
+click_xy(inp["x"], inp["y"])
 time.sleep(0.4)
 type_text("上海")
 time.sleep(1.5)
-press_key("Enter")        # selects first autocomplete suggestion
+press("Enter")        # selects first autocomplete suggestion
 
 btn = js("""
   const b = Array.from(document.querySelectorAll("button, div"))
@@ -107,7 +107,7 @@ btn = js("""
 """)
 if not btn:
     raise RuntimeError("ctrip homepage: 搜索 button not found — page DOM may have changed")
-click_at_xy(btn["x"], btn["y"])
+click_xy(btn["x"], btn["y"])
 time.sleep(7)
 # now on /hotels/list?... with the full canonical schema
 ```
